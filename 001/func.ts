@@ -34,6 +34,32 @@ function names(fullName: string, ...otherNames: string[]) {
 
 names('Tamilvanan', 'tamilvanan31', 'blocks', 'iSuckAtCoding')
 
+function Person(age: number) {
+    this.age = age
+    this.display = () => {
+        ++this.age;
+        console.log(this.age)
+    }
+    /*
+    'this' inside an arrow function is equivalent to the global object. 
+    Whenever an arrow function is inside an object, 
+    it will derive this value from the enclosing lexical scope. 
+    Lexical scope, in this case, is the global scope.
+    */
+
+}
+var person = new Person(1)
+setTimeout(person.display, 1000)
+
+function add(...values: number[]) {
+    let sum = 0;
+    values.forEach(val => sum += val);
+    return sum;
+}
+const sum = add(5, 10, 15, 20);
+console.log(sum); 
+
+export {}
 
 
 
